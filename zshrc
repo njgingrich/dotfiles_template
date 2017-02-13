@@ -18,7 +18,7 @@ ZSH_THEME="bira"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=14
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -55,6 +55,8 @@ plugins=(git)
 
 # export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
+export PATH=$PATH:"/home/nathan/.rubies/ruby-2.4.0/lib/ruby/gems/2.4.0/gems"
+export PATH=$PATH:"/home/nathan/.rubies/ruby-2.4.0/bin"
 
 source $ZSH/oh-my-zsh.sh
 
