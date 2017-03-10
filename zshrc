@@ -84,13 +84,17 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# ALIASES
 alias zshconfig="mate ~/.zshrc"
-
 # osbuddy alias
 alias osbuddy="~/.scripts/osbuddy.sh"
-
 # eclipse alias
 alias eclipse="/opt/eclipse/eclipse"
+# ssh into Hope's loki server
+alias sshloki="ssh -X nathan.gingrich@loki.cs.hope.edu"
+# ssh into Hope's rizzo server
+alias sshrizzo="ssh -X nathan.gingrich@rizzo.cs.hope.edu"
+
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/nathan/.sdkman"
