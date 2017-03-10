@@ -95,5 +95,3 @@ alias eclipse="/opt/eclipse/eclipse"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/nathan/.sdkman"
 [[ -s "/home/nathan/.sdkman/bin/sdkman-init.sh" ]] && source "/home/nathan/.sdkman/bin/sdkman-init.sh"
-
-eval `gnome-keyring-daemon --start`
