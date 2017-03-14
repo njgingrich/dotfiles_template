@@ -95,10 +95,7 @@ alias sshloki="ssh -X nathan.gingrich@loki.cs.hope.edu"
 # ssh into Hope's rizzo server
 alias sshrizzo="ssh -X nathan.gingrich@rizzo.cs.hope.edu"
 
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/nathan/.sdkman"
-[[ -s "/home/nathan/.sdkman/bin/sdkman-init.sh" ]] && source "/home/nathan/.sdkman/bin/sdkman-init.sh"
+export TERM="xterm-256color"
 
 SSH_ENV=$HOME/.ssh/environment
 
@@ -121,3 +118,8 @@ if [ -f "${SSH_ENV}" ]; then
 else
     start_agent;
 fi
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/nathan/.sdkman"
+[[ -s "/home/nathan/.sdkman/bin/sdkman-init.sh" ]] && source "/home/nathan/.sdkman/bin/sdkman-init.sh"
+
