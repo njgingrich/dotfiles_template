@@ -7,6 +7,7 @@
 - clean: []
 - link:
     ~/.config/i3/config: i3/config
+    ~/.config/rofi/config: rofi/config
     ~/.zshrc: zshrc
     ~/.vimrc: vimrc
 - shell: []
