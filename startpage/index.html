@@ -1,0 +1,256 @@
+<!doctype HTML>
+<html>
+    <title>New Tab</title>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    </head>
+    <script>
+    const CONFIG = {
+        categories: [
+            {
+                name: 'Play',
+                commands: [
+                    { key: 'r', name: 'reddit', url: 'https://www.reddit.com' },
+                    { key: 'd', name: 'r/dota2', url: 'https://www.reddit.com/r/dota2' },
+                    { key: 'p', name: 'r/programming', url: 'https://www.reddit.com/r/programming' },
+                    { key: 't', name: 'Twitch', url: 'https://www.twitch.tv' },
+                    { key: 'y', name: 'Youtube', url: 'https://www.youtube.com' }
+                ]
+            },
+            {
+                name: 'Work',
+                commands: [
+                    { key: 'i', name: 'Inbox', url: 'https://inbox.google.com' },
+                    { key: 'D', name: 'Drive', url: 'https://drive.google.com/#my-drive' },
+                    { key: 'g', name: 'Github', url: 'https://www.github.com/njgingrich' }
+                ]
+            },
+            {
+                name: 'Social',
+                commands: [
+                    { key: 'f', name: 'Facebook', url: 'https://facebook.com' },
+                    { key: 'T', name: 'Twitter', url: 'https://twitter.com' },
+                    { key: 'I', name: 'Instagram', url: 'https://instagram.com' }
+                ]
+            },
+            {
+                name: 'Hope',
+                commands: [
+                    { key: '1', name: '1Hope', url: 'https://1.hope.edu' },
+                    { key: 'P', name: 'KnowHope Plus', url: 'https://plus.hope.edu' },
+                    { key: 'm', name: 'Meals', url: 'http://www.hope.edu/offices/dining-services/menus-locations/index.html' }
+                ]
+            }
+        ]
+    }
+    </script>
+    <style>
+        :root {
+            --color-white: #eee;
+            --color-dark: #313131;
+            --color-overlay: #212121;
+            --color-accent: #37474f;
+            font-family: 'Roboto Slab', serif;
+        }
+        a, a:link, a:visited {
+            text-decoration: none;
+            color: var(--color-white);
+        }
+        body {
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--color-white);
+            background: var(--color-dark);
+        }
+        .code-char {
+            font-family: 'Roboto Mono', sans-serif;
+            display: inline-block;
+            border-radius: 4px;
+            background: #333;
+            width: .5em;
+            padding: .5em 1em;
+            margin-right: .5em;
+        }
+        .container {
+            text-align: center;
+        }
+        .clock {
+            font-size: 5em;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            padding: 4vw;
+            background: var(--color-overlay);
+            overflow: auto;
+            box-sizing: border-box;
+            visibility: hidden;
+
+            display: flex;
+            justify-content: center;
+        }
+
+        .overlay[toggle] {
+            visibility: visible;
+        }
+        .overlay nav {
+            flex-basis: 20vw;
+            padding: 0 1em;
+        }
+        .overlay nav ul {
+            list-style: none;
+            -webkit-margin-before: 0;
+            -webkit-margin-after: 0;
+            -webkit-margin-start: 0;
+            -webkit-margin-end: 0;
+            -webkit-padding-start: 0;
+        }
+        .overlay nav p {
+            background: var(--color-accent);
+            height: 2em;
+            font-weight: bold;
+            font-size: 1.2em;
+            padding: .5em 1em;
+            -webkit-margin-before: 0;
+            -webkit-margin-after: 0;
+            text-align: center;
+        }
+        .overlay nav ul li {
+            height: 2em;
+            padding: .5em 1em;
+            background: #555;
+        }
+        .overlay nav ul li:nth-child(even) {
+            background: #5f5f5f;
+        }
+        .search {
+            color: var(--color-dark);
+        }
+        input[type="text"] {
+            margin: 0;
+            font-size: 2em;
+            box-shadow: none;
+            border-radius: none;
+        }
+    </style>
+
+    <body>
+        <div class="container">
+            <div class="clock">
+                <span class="time">11:47</span>
+            </div>
+            <div class="search">
+                <input class="searcher" type="text" width=20 autofocus=true>
+            </div>
+        </div>
+        <div class="overlay" id="overlay">
+        </div>
+        <script>
+            for (let i = 0; i < CONFIG['categories'].length; i++) {
+                let category = CONFIG['categories'][i];
+                let node = document.getElementById('overlay');
+                node.innerHTML += '<nav><p>' + category.name + '</p><ul>';
+                node = node.getElementsByTagName('ul')[i];
+                category.commands.forEach(cmd => {
+                    node.innerHTML += '<li><span class="code-char">'+cmd.key+'</span><a href="'+cmd.url+'">'+cmd.name+'</a></li>';
+                });
+                node.innerHTML += '</nav>'
+            };
+            document.querySelector('.searcher').focus();
+        </script>
+    </body>
+
+    <script>
+    class Overlay {
+        constructor() {
+            this._overlayEl = document.querySelector('.overlay');
+            this._handleKeyEvent = this._handleKeyEvent.bind(this);
+            this._registerEvents();
+        }
+        _handleKeyEvent(event) {
+            const isEsc = event.which === 27;
+            if (isEsc) this.toggle();
+        }
+        _registerEvents() {
+            document.addEventListener('keydown', this._handleKeyEvent);
+        }
+        toggle() {
+            const toggle = this._overlayEl.getAttribute('toggle');
+            if (toggle) {
+                this._overlayEl.removeAttribute('toggle');
+            } else {
+                this._overlayEl.setAttribute('toggle', 'false');
+            }
+        }
+    }
+    class Searcher {
+        constructor() {
+            this._searchEl = document.querySelector('.searcher');
+            this._handleKeyPress = this._handleKeyPress.bind(this);
+            this._registerEvents();
+        }
+
+        _handleKeyPress(event) {
+            const isEnter = (event.which === 13 || event.keyCode === 13);
+            if (isEnter) {
+                const inputText = this._searchEl.value;
+                let found = false;
+                CONFIG['categories'].forEach(cat => {
+                    let exists = cat.commands.filter(cmd => cmd.key === inputText);
+                    // check if input is in the config as a key
+                    if (exists.length !== 0) {
+                        found = true;
+                        let cmd = exists[0];
+                        console.log('exists', exists, 'with value', cmd);
+                        window.location.href = cmd.url;
+                    }
+                });
+
+                // if not, do a google search
+                if (!found) {
+                    window.location.href = 'https://www.google.com/search?q='+inputText;
+                }
+
+            }
+        }
+
+        _registerEvents() {
+            document.addEventListener('keydown', this._handleKeyPress);
+        }
+    };
+
+    class Clock {
+        constructor() {
+            this._clockEl = document.querySelector('.time');
+            this._setTime = this._setTime.bind(this);
+            this._start();
+        }
+
+        _setWidth(num) {
+            return (`0${num.toString()}`).slice(-2);
+        }
+
+        _setTime() {
+            const date = new Date();
+            const hours = date.getHours() % 12;
+            const minutes = this._setWidth(date.getMinutes());
+            this._clockEl.innerHTML = `${hours}:${minutes}`;
+        }
+
+        _start() {
+            this._setTime();
+            setInterval(this._setTime, 1000);
+        }
+    }
+
+    const overlay = new Overlay();
+    const searcher = new Searcher();
+    const clock = new Clock();
+    </script>
+</html>

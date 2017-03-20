@@ -13,4 +13,5 @@
     ~/.config/polybar/config: polybar/config
     ~/.config/polybar/launch.sh: polybar/launch.sh
     ~/.config/polybar/weather.py: polybar/scripts/weather.py
+    ~/.config/startpage.html: startpage/index.html
 - shell: []
