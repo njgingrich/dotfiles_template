@@ -10,4 +10,7 @@
     ~/.config/rofi/config: rofi/config
     ~/.zshrc: zshrc
     ~/.vimrc: vimrc
+    ~/.config/polybar/config: polybar/config
+    ~/.config/polybar/launch.sh: polybar/launch.sh
+    ~/.config/polybar/weather.py: polybar/scripts/weather.py
 - shell: []
