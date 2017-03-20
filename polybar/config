@@ -8,19 +8,27 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #212E36
-background-alt = #3C5A46
-background-unf = #2E463E
-background-mod0 = #3C5A46
-background-mod1 = #546E53
-background-mod2 = #708963
-background-alrt = #A1BB76
+;background = #212E36
+;background-alt = #3C5A46
+;background-unf = #2E463E
+;background-mod0 = #3C5A46
+;background-mod1 = #546E53
+;background-mod2 = #708963
+;background-alrt = #A1BB76
+
+background = #212121
+background-alt = #212121
+background-unf = #263238
+background-mod0 = #37474f
+background-mod1 = #37474f
+background-mod2 = #37474f
+background-alrt = #455a64
 
 ;foreground = ${xrdb:color7:#222}
-foreground = #F3F3BA
-foreground-alt = #F3F3BA
-primary = #F3F3BA
-secondary = #F3F3BA
+foreground = #EEEEEE
+foreground-alt = #EEEEEE
+primary = #EEEEEE
+secondary = #EEEEEE
 
 
 [bar/top]
