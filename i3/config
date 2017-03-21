@@ -197,10 +197,6 @@ bindsym XF86AudioPause exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec--no-startup-id playerctl previous
 
-# SET WALLPAPER WITH FEH
-#exec_always feh --bg-scale ~/Pictures/wallpapers/trooper.jpg
-#exec_always nm-applet
-
 # STATUS BAR
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
