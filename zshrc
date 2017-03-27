@@ -1,5 +1,8 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/nathan/.oh-my-zsh
+export ZSH=/home/nathan/.oh-my-zsh
+
+# Path to NPM global location
+export PATH=$HOME/.npm-global/bin:$PATH
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/

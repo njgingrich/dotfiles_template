@@ -203,4 +203,3 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Brightness
 bindsym XF86MonBrightnessDown exec --no-startup-id "sudo bright_down"
 bindsym XF86MonBrightnessUp exec --no-startup-id "sudo bright_up"
-
